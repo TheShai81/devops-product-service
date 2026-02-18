@@ -1,0 +1,22 @@
+version: "3.9"
+
+services:
+  product-service:
+    build: .
+    image: shaileshbolduc/product-service:1.0.0
+    ports:
+      - "20001:20001"
+    environment:
+      DB_HOST: host.docker.internal
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_NAME: ${DB_NAME}
+      DB_PORT: ${DB_PORT}
+
+  security-scan:
+    image: aquasec/trivy:latest
+    depends_on:
+      - product-service
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: image shaileshbolduc/product-service:1.0.0
