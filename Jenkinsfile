@@ -139,7 +139,7 @@ pipeline {
                     }
 
                     echo "Deploying ${IMAGE_NAME}:${TAG} to Production environment"
-                    echo "Will implement in phases 4, 5, and 6."
+                    echo "Will implement in phases 4, 5 and 6."
                 }
             }
         }
