@@ -25,7 +25,7 @@ pipeline {
                         TARGET_ENV = "build"
                     } else if (env.BRANCH_NAME == "develop") {
                         TARGET_ENV = "dev"
-                    } else if (env.BRANCH_NAME.startsWith("release/")) {
+                    } else if (env.BRANCH_NAME.startsWith("release")) {
                         TARGET_ENV = "staging"
                     } else if (env.BRANCH_NAME == "main") {
                         TARGET_ENV = "prod"
